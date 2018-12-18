@@ -7,11 +7,12 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/bootstrap-select/bootstrap-select.css" />
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="assets/themify/css/themify-icons.css">
 <!-- Google Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700">
-<link href="https://fonts.googleapis.com/css?family=Poppins:300i,400,600" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Poppins:300i,400,600" rel="stylesheet">
 
 <title>CloudScript</title>
 </head>
@@ -82,21 +83,21 @@
 									<div class="col-sm-8">
 										<div class="row">
 											<div class="col">
-												<select class="custom-select">
+												<select>
 													<option selected>Day</option>
 													<option value="1">01</option>
 												</select>
 											</div>
 
 											<div class="col">
-												<select class="custom-select">
+												<select>
 													<option selected>Month</option>
 													<option value="1">Jan</option>
 												</select>
 											</div>
 
 											<div class="col">
-												<select class="custom-select">
+												<select>
 													<option selected>Year</option>
 													<option value="1">1980</option>
 												</select>
@@ -108,7 +109,7 @@
 								<div class="form-group row">
 									<label class="col-sm-4 col-form-label">Gender</label>
 									<div class="col-sm-8">
-										<select class="custom-select">
+										<select>
 											<option selected>Male</option>
 											<option value="1">Female</option>
 										</select>
@@ -135,7 +136,7 @@
 								<div class="form-group row">
 									<label class="col-sm-4 col-form-label">Position/Designation</label>
 									<div class="col-sm-8">
-										<select class="custom-select">
+										<select>
 											<option selected>Consultant</option>
 											<option value="1">Specialist</option>
 											<option value="2">Resident</option>
@@ -151,7 +152,7 @@
 								<div class="form-group row">
 									<label class="col-sm-4 col-form-label">Qualification</label>
 									<div class="col-sm-8">
-										<select class="custom-select">
+										<select class="selectpicker" multiple data-live-search="true">
 											<option selected>Mmed</option>
 											<option value="1">M.D</option>
 											<option value="2">AMO</option>
@@ -164,7 +165,7 @@
 								<div class="mar-b-20">
 									<div class="form-group">
 										<div class="input-group multi-field proof-field">
-											<select class="custom-select">
+											<select>
 												<option selected>National Identity Card Number</option>
 												<option value="1">Insurance Card Number</option>
 												<option value="2">Passport Number</option>
@@ -222,7 +223,7 @@
 									<div class="form-group row">
 										<label class="col-sm-4 col-form-label">State/Region</label>
 										<div class="col-sm-8">
-											<select class="custom-select">
+											<select>
 												<option value="2">America</option>
 												<option selected>Australia</option>
 												<option value="1">New Zealand</option>
@@ -245,7 +246,7 @@
 									<div class="form-group row">
 										<label class="col-sm-4 col-form-label">Country</label>
 										<div class="col-sm-8">
-											<select class="custom-select">
+											<select>
 												<option value="2">America</option>
 												<option selected>Australia</option>
 												<option value="1">New Zealand</option>
@@ -271,7 +272,7 @@
 								<h5>Facility Levels/Type</h5>
 								<div class="mar-b-20">
 									<div class="form-group">
-										<select class="custom-select">
+										<select>
 											<option selected>Consultant Hospital</option>
 											<option value="1">Zonal Hospital</option>
 											<option value="2">Regional Hospital</option>
@@ -329,7 +330,7 @@
 									<div class="form-group row">
 										<label class="col-sm-4 col-form-label">State/Region</label>
 										<div class="col-sm-8">
-											<select class="custom-select">
+											<select>
 												<option value="2">America</option>
 												<option selected>Australia</option>
 												<option value="1">New Zealand</option>
@@ -352,7 +353,7 @@
 									<div class="form-group row">
 										<label class="col-sm-4 col-form-label">Country</label>
 										<div class="col-sm-8">
-											<select class="custom-select">
+											<select>
 												<option value="2">America</option>
 												<option selected>Australia</option>
 												<option value="1">New Zealand</option>
@@ -377,7 +378,7 @@
 							<div class="fac-level">
 								<h5>Facility Levels/Type</h5>
 								<div class="form-group">
-									<select class="custom-select">
+									<select>
 										<option selected>Consultant Hospital</option>
 										<option value="1">Zonal Hospital</option>
 										<option value="2">Regional Hospital</option>
@@ -482,5 +483,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="assets/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript">
+$('select').selectpicker();
+</script>
 </body>
 </html>

@@ -111,7 +111,16 @@ ul { /*margin: 0;*/ padding-left: 20px; }
 .register-form .form-group.row .row .col { padding-right: 5px; padding-left: 5px;}
 .register-form .form-group.row .row{margin-right: -5px; margin-left: -5px;}
 .multi-field:not(:first-child) { margin-top: 0.5rem; }
-.proof-field > .custom-select, .proof-field .input-group-append { width: 50%; }
+
+/* overrides for bootstrap select */
+.bootstrap-select .btn { border: 1px solid #cccccc; border-radius: 0; padding: 0.45rem 0.75rem; }
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) { width: 100%; }
+.proof-field .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn), .proof-field .input-group-append { width: 50%; }
+.bootstrap-select .dropdown-toggle:focus { outline: none !important; }
+.bootstrap-select .btn-light:hover, .bootstrap-select .btn-light:focus, .bootstrap-select .btn-light:active:focus,
+.bootstrap-select .btn-light:not(:disabled):not(.disabled).active, .bootstrap-select .btn-light:not(:disabled):not(.disabled):active, .bootstrap-select.show>.btn-light.dropdown-toggle { background-color: transparent; }
+.bootstrap-select .dropdown-item.active, .bootstrap-select .dropdown-item:active { background-color: #00b2ff; }
+
 
 .cnt-form .title { color: #ffffff; }
 .cnt-form .form-group,{ margin-bottom: 2rem; }
