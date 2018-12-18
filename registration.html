@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="assets/themify/css/themify-icons.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300i,400,600" rel="stylesheet"> 
+
+<title>CloudScript</title>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- header -->
+<header class="header flat-txt">
+	<div class="container">
+		<div class="row">
+			<div class="col-6 col-md-7 col-lg-8">
+				<div class="logo pri-txt">
+					<a href="#"><img src="images/logo.png" alt="logo" class="img-fluid"></a>
+				</div>
+				<div class="slogan hide-xs-down"><h6 class="mar-b-0">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6></div>
+			</div>
+			<div class="col-6 col-md-5 col-lg-4">
+				<div class="rgt-head text-uppercase">
+					<a href="#" class="btn btn-lg btn-pri">Login</a>
+					<a href="#" class="btn btn-lg btn-tipcor">Register</a>
+				</div>
+			</div>
+			<div class="col-12 hide-xs-up"><div class="slogan"><h6 class="mar-b-0">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6></div></div>
+		</div>
+	</div>
+</header>
+
+<section class="content-section">
+	<div class="container">
+		<div class="register-form">
+			<h1 class="title">Registration Form</h1>
+			<div class="inside-block">
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<div class="personal-dtl border-bot">
+							<form>
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">First Name</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">Middle Name</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">Last Name</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">Date of Birth</label>
+									<div class="col-sm-8">
+										<div class="row">
+											<div class="col">
+												<select class="custom-select">
+													<option selected>Day</option>
+													<option value="1">01</option>
+												</select>
+											</div>
+
+											<div class="col">
+												<select class="custom-select">
+													<option selected>Month</option>
+													<option value="1">Jan</option>
+												</select>
+											</div>
+
+											<div class="col">
+												<select class="custom-select">
+													<option selected>Year</option>
+													<option value="1">1980</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">Gender</label>
+									<div class="col-sm-8">
+										<select class="custom-select">
+											<option selected>Male</option>
+											<option value="1">Female</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">Telephone</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control multi-field">
+										<a href="#" class="pri-txt"><small><i class="ti-plus"></i> Add New</small></a>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">Email</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control multi-field">
+										<a href="#" class="pri-txt"><small><i class="ti-plus"></i> Add New</small></a>
+									</div>
+								</div>
+
+								
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">Position/Designation</label>
+									<div class="col-sm-8">
+										<select class="custom-select">
+											<option selected>Consultant</option>
+											<option value="1">Specialist</option>
+											<option value="2">Resident</option>
+											<option value="3">Registrar</option>
+											<option value="1">Designated Hospital</option>
+											<option value="2">Intern</option>
+											<option value="3">Assistant Medical Officer</option>
+											<option value="3">Clinical Officer</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">Qualification</label>
+									<div class="col-sm-8">
+										<select class="custom-select">
+											<option selected>Mmed</option>
+											<option value="1">M.D</option>
+											<option value="2">AMO</option>
+											<option value="3">CO</option>
+										</select>
+									</div>
+								</div>
+
+								<h5>Proof of Identity</h5>
+								<div class="mar-b-20">
+									<div class="form-group">
+										<div class="input-group multi-field proof-field">
+											<select class="custom-select">
+												<option selected>National Identity Card Number</option>
+												<option value="1">Insurance Card Number</option>
+												<option value="2">Passport Number</option>
+											</select>
+											<div class="input-group-append">
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<a href="#" class="pri-txt"><small><i class="ti-plus"></i> Add New</small></a>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div class="primary-section border-bot">
+							<h4>Principal Place of Practice</h4>
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label">Name</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+
+							<div class="address">
+								<h5>Address</h5>
+								<form>
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Site/Building</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Department</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Street</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">District</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">State/Region</label>
+										<div class="col-sm-8">
+											<select class="custom-select">
+												<option value="2">America</option>
+												<option selected>Australia</option>
+												<option value="1">New Zealand</option>
+												<option value="3">Japan</option>
+												<option value="1">Korea</option>
+												<option value="2">Nepal</option>
+												<option value="3">Phillipines</option>
+												<option value="3">Vietnam</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Zip Code</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Country</label>
+										<div class="col-sm-8">
+											<select class="custom-select">
+												<option value="2">America</option>
+												<option selected>Australia</option>
+												<option value="1">New Zealand</option>
+												<option value="3">Japan</option>
+												<option value="1">Korea</option>
+												<option value="2">Nepal</option>
+												<option value="3">Phillipines</option>
+												<option value="3">Vietnam</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Other</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div class="fac-level">
+								<h5>Facility Levels/Type</h5>
+								<div class="mar-b-20">
+									<div class="form-group">
+										<select class="custom-select">
+											<option selected>Consultant Hospital</option>
+											<option value="1">Zonal Hospital</option>
+											<option value="2">Regional Hospital</option>
+											<option value="3">District Hospital</option>
+											<option value="1">Designated Hospital</option>
+											<option value="2">Health Facility</option>
+											<option value="3">Dispensary</option>
+											<option value="3">Other</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="secendary-section">
+							<h4>Secondary Place of Practice</h4>
+
+							<div class="form-group row">
+								<label class="col-sm-4 col-form-label">Name</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="address">
+								<h5>Address</h5>
+								<form>
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Site/Building</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Department</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Street</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">District</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">State/Region</label>
+										<div class="col-sm-8">
+											<select class="custom-select">
+												<option value="2">America</option>
+												<option selected>Australia</option>
+												<option value="1">New Zealand</option>
+												<option value="3">Japan</option>
+												<option value="1">Korea</option>
+												<option value="2">Nepal</option>
+												<option value="3">Phillipines</option>
+												<option value="3">Vietnam</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Zip Code</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Country</label>
+										<div class="col-sm-8">
+											<select class="custom-select">
+												<option value="2">America</option>
+												<option selected>Australia</option>
+												<option value="1">New Zealand</option>
+												<option value="3">Japan</option>
+												<option value="1">Korea</option>
+												<option value="2">Nepal</option>
+												<option value="3">Phillipines</option>
+												<option value="3">Vietnam</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="form-group row">
+										<label class="col-sm-4 col-form-label">Other</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control">
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div class="fac-level">
+								<h5>Facility Levels/Type</h5>
+								<div class="form-group">
+									<select class="custom-select">
+										<option selected>Consultant Hospital</option>
+										<option value="1">Zonal Hospital</option>
+										<option value="2">Regional Hospital</option>
+										<option value="3">District Hospital</option>
+										<option value="1">Designated Hospital</option>
+										<option value="2">Health Facility</option>
+										<option value="3">Dispensary</option>
+										<option value="3">Other</option>
+									</select>
+								</div>
+							</div>
+
+							<button type="submit" class="btn btn-lg btn-pri mar-t-10">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- footer -->
+<footer class="footer sec-bg">
+	<div class="footer-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="footer-intro">
+						<p class="logo pri-txt mar-b-20">CloudScript</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+							ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur.</p>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6">
+					<div class="footer-pg">
+						<h4 class="mar-b-20">Our Pages</h4>
+						<ul class="footer-link">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Module</a></li>
+							<li><a href="#">Pricing</a></li>
+							<li><a href="#">Legal</a></li>
+							<li><a href="#">Contact Us</a></li>
+							<li><a href="#">Dashboard</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6">
+					<div class="footer-map">
+						<h4 class="mar-b-20">Our Location</h4>
+						<ul class="footer-link">
+							<li><a href="#">Melbourn</a></li>
+							<li><a href="#">NewYork</a></li>
+							<li><a href="#">London</a></li>
+							<li><a href="#">San Fransisco</a></li>
+							<li><a href="#">Ontario</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="newsletter">
+						<h4 class="mar-b-20">Sdubcribe Newsletter</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+						
+						<div class="sub-form">
+							<form>
+								<div class="form-group">
+									<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your e-mail">
+								</div>
+								<button type="submit" class="btn btn-lg btn-pri">Subscribe</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<div class="copyrite">
+						<p class="mar-b-0">Copyright 2018 <a href="#" class="pri-txt">CloudScript</a>. All Rights Reserved.</p>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6">
+					<div class="bottom-nav">
+						<ul>
+							<li><a href="#">Legal</a></li>
+							<li><a href="#">Term & Condition</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
