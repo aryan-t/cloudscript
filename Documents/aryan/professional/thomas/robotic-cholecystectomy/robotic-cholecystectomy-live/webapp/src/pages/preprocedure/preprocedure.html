@@ -1,0 +1,175 @@
+<ion-header>
+	<ion-navbar color="primary"  hideBackButton="true">
+		<button ion-button menuToggle *ngIf='platform === "mobileweb"'>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<!-- <ion-buttons left>
+			<button ion-button icon-only (click)="goBack()">
+				<ion-icon name="ios-arrow-back"></ion-icon>
+			</button>
+		</ion-buttons> -->
+		<ion-title  align-title="center">Pre-Procedure</ion-title>
+		<ion-buttons right>
+			 
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)" #pageTop>
+	<div *ngIf='platform === "mobileweb" || platform ==="web"' [ngClass]="navClassName=='opennav'?'navopen':'na'">
+		<div class="pagecontainer">
+			<div class="pagenav">
+				<ul>
+					<li (click)="goToProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/open-book.svg" class="icon-default"><img src="assets/imgs/open-book-white.svg" class="icon-white"></i> 
+				      <span class="menutext">About procedure</span>
+				     </li>
+				     <li (click)="gotToPreProcedure()" class="active">
+				      <i class="icon"><img src="assets/imgs/numbers.svg" class="icon-default"><img src="assets/imgs/numbers-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Pre-procedure</span>
+				     </li>
+				     <li (click)="gotToDuringProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/sleeping.svg" class="icon-default"><img src="assets/imgs/sleeping-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Procedure</span>
+				     </li>
+				     <li (click)="goToRecoverPage()">
+				      <i class="icon"><img src="assets/imgs/eye-blocked.svg" class="icon-default"><img src="assets/imgs/eye-blocked-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Recovery</span>
+				     </li>
+				     <li (click)="goToPostProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/home.svg" class="icon-default"><img src="assets/imgs/home-white.svg" class="icon-white"></i> 
+				      <span class="menutext">At Home</span>
+				     </li>
+				     <li (click)="goToWhatIfPage()">
+				      <i class="icon"><img src="assets/imgs/question-mark.svg" class="icon-default"><img src="assets/imgs/question-mark-white.svg" class="icon-white"></i> 
+				      <span class="menutext">What to do if</span>
+				     </li>
+				     <li (click)="gotToSuccessPage()">
+				      <i class="icon"><img src="assets/imgs/check-mark.svg" class="icon-default"><img src="assets/imgs/check-mark-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Success</span>
+				     </li>
+				     <li (click)="gotoInsurancePage()" class="pointer">
+										<i class="icon"><img src="assets/imgs/dollar-symbol.svg" class="icon-default"><img src="assets/imgs/dollar-symbol-white.svg" class="icon-white"></i> 
+										<span class="menutext">Insurance</span>
+									</li>
+				     <li (click)="toggleNav()" class="menucollapse"><i class="icon"><img src="assets/imgs/chevron-left.svg"></i> <span class="menutext">Collapse Menu</span></li>
+				</ul>
+			</div>
+			<div class="pagecontent">
+				<ion-grid>
+					<ion-row>
+						<ion-col align-self-stretch [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+							<!-- <div class="page-title">
+								<h2>Pre-procedure</h2>
+								<ion-icon md="md-help" class="help-action"></ion-icon>
+							</div> -->
+							<ion-segment mode="ios" [(ngModel)]="preProcedures" class="tabs-default" >
+								<ion-segment-button value="week-before"  (click)="segmentChanged(1)">
+									Weeks before
+								</ion-segment-button>
+								<ion-segment-button value="day-before" (click)="segmentChanged(2)">
+									Day before
+								</ion-segment-button>
+							</ion-segment>
+
+							<div [ngSwitch]="preProcedures">
+								<div *ngSwitchCase="'week-before'">
+									<div *ngIf="hideDayBefore">
+										<div class="page-image">
+											<img width="100%" height="40%" src="./assets/imgs/week-before.jpg">
+										</div>
+										<p><small ion-text color="danger">Check when task is completed</small></p>
+										<div *ngFor="let weekBeforeItems of preProceduresweekBeforeItems;let i=index" class="pointer accordion-item accordion-multi" [ngClass]="weekBeforeItems.show==true?'titleContainer':'na'">
+											<div class="item-checkbox">
+												<ion-checkbox  mode="ios" checked="{{weekBeforeItems.selected}}" (click)="selectItems(i)"></ion-checkbox>
+											</div>
+											<div class="item-content breadcrumb" *ngIf="weekBeforeItems.dropdown == false">
+												<h4 (click)="activateItem(i)" class="accr-title">
+													{{weekBeforeItems.title}}
+													<span class="arr-icon">
+														<ion-icon *ngIf="!weekBeforeItems.show" name="ios-arrow-down"></ion-icon>
+														<ion-icon *ngIf="weekBeforeItems.show" name="ios-arrow-up"></ion-icon>
+													</span>
+												</h4>
+												<div class="accr-content" [innerHTML]="getHtmlContent(i)" *ngIf="weekBeforeItems.show"></div>
+											</div>
+											<div class="item-content breadcrumb" *ngIf="weekBeforeItems.dropdown == true">
+												<h4 (click)="activateItem(i)" class="accr-title">
+													{{weekBeforeItems.title}}
+													<span class="arr-icon">
+														<ion-icon *ngIf="!weekBeforeItems.show" name="ios-arrow-down"></ion-icon>
+														<ion-icon *ngIf="weekBeforeItems.show" name="ios-arrow-up"></ion-icon>
+													</span>
+												</h4>
+												<div class="accr-content" [innerHTML]="getHtmlContent(i)" *ngIf="weekBeforeItems.show"></div>
+												
+												<div *ngFor="let itemDet of weekBeforeItems.dropdownContent;let j=index" class="pointer accordion-item accordion-multi">
+														<div class="item-content breadcrumb" *ngIf="weekBeforeItems.show">
+													<h4 (click)="activateDetailItem(i, j)" class="accr-title">
+														<b><u>{{itemDet.title}}</u></b>
+														<span class="arr-icon">
+															<ion-icon *ngIf="!itemDet.show" name="ios-arrow-down"></ion-icon>
+															<ion-icon *ngIf="itemDet.show" name="ios-arrow-up"></ion-icon>
+														</span>
+													</h4>
+													<div class="accr-content" [innerHTML]="getDetailHtmlContent(i,j)" *ngIf="itemDet.show"></div>
+														</div>
+													</div>
+												
+											</div>
+										</div>
+									</div> 
+								</div>
+
+								<div *ngSwitchCase="'day-before'">
+									<div *ngIf="!hideDayBefore">
+										<div class="page-image">
+											<img width="100%" height="40%" src="./assets/imgs/day-before.jpg">
+										</div>
+										<p><small ion-text color="danger">Check when task is completed</small></p>
+										<div *ngFor="let dayBeforeItems of preProceduresDayBeforeItems;let i=index" class="pointer accordion-item accordion-multi" [ngClass]="dayBeforeItems.show==true?'titleContainer':'na'">
+											<div class="item-checkbox">
+												<ion-checkbox  mode="ios" checked="{{dayBeforeItems.selected}}" (click)="selectItemsOfDaysBefore(i)" disabled="{{dayBeforeItems.disabled}}"></ion-checkbox>
+											</div>
+											<div class="item-content breadcrumb">
+												<h4 (click)="activateItemOfDaysBefore(i)" class="accr-title">
+													{{dayBeforeItems.title}}
+													<span class="arr-icon">
+														<ion-icon *ngIf="!dayBeforeItems.show" name="ios-arrow-down"></ion-icon>
+														<ion-icon *ngIf="dayBeforeItems.show" name="ios-arrow-up"></ion-icon>
+													</span>
+												</h4>
+												<div class="accr-content" [innerHTML]="getHtmlContentOfDaysBefore(i)" *ngIf="dayBeforeItems.show"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="arrownav">
+								<ion-icon name="ios-arrow-back" (click)="swipeRight()" class="iconarrow arrow-left"></ion-icon>
+								<ion-icon name="ios-arrow-forward" (click)="swipeLeft()" class="iconarrow arrow-right"></ion-icon>
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends" (click)="goToHomePage()">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people" (click)="goToPeoplePage()">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="goToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

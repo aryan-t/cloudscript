@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Robotic Cholecystectomy</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <link rel="icon" type="image/png" href="assets/icon/icon48.png">
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="theme-color" content="#4e8ef7">
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102824868-4"></script>
+  <script type="text/javascript">
+     if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+        console.log('Service Worker registration successful with scope: ', registration.scope);
+      }, function (err) {
+        console.log('Service Worker registration failed: ', err);
+      });
+
+      navigator.serviceWorker.ready.then(function (registration) {
+        console.log('Service Worker ready');
+      });
+    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-102824868-4');
+  </script>
+
+  <link type="text/css" href="build/main.css" rel="stylesheet">
+
+</head>
+<body>
+  <ion-app></ion-app>
+  <script type="text/javascript" src="build/polyfills.js"></script>
+  <script type="text/javascript" src="build/vendor.js"></script>
+  <script type="text/javascript" src="build/main.js"></script>
+  <noscript>This Healthcare Progressive Web App from PatientApps requires Javascript to be enabled</noscript>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!--
+  Generated template for the MessagetophysicianPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+	<ion-navbar color="primary"  hideBackButton="true">
+		<button ion-button menuToggle  *ngIf='platform === "mobileweb"'>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<!-- <ion-buttons left>
+			<button ion-button icon-only (click)="goBack()">
+				<ion-icon name="ios-arrow-back"></ion-icon>
+			</button>
+		</ion-buttons> -->
+		<ion-title  align-title="center">Message to Our Patients</ion-title>
+		<!-- <ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search"></ion-icon>
+			</button>
+		</ion-buttons> -->
+	</ion-navbar>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)">
+	<div *ngIf='platform === "mobileweb" || platform ==="web"' [ngClass]="navClassName=='opennav'?'navopen':'na'">
+		<div class="pagecontainer">
+			<div class="pagenav">
+				<ul>
+					<li (click)="goToProcedurePage()">
+						<i class="icon"><img src="assets/imgs/open-book.svg" class="icon-default"><img src="assets/imgs/open-book-white.svg" class="icon-white"></i> 
+						<span class="menutext">About procedure</span>
+					</li>
+					<li (click)="gotToPreProcedure()">
+						<i class="icon"><img src="assets/imgs/numbers.svg" class="icon-default"><img src="assets/imgs/numbers-white.svg" class="icon-white"></i> 
+						<span class="menutext">Pre-procedure</span>
+					</li>
+					<li (click)="gotToDuringProcedurePage()">
+						<i class="icon"><img src="assets/imgs/sleeping.svg" class="icon-default"><img src="assets/imgs/sleeping-white.svg" class="icon-white"></i> 
+						<span class="menutext">Procedure</span>
+					</li>
+					<li (click)="goToRecoverPage()">
+						<i class="icon"><img src="assets/imgs/eye-blocked.svg" class="icon-default"><img src="assets/imgs/eye-blocked-white.svg" class="icon-white"></i> 
+						<span class="menutext">Recovery</span>
+					</li>
+					<li (click)="goToPostProcedurePage()">
+						<i class="icon"><img src="assets/imgs/home.svg" class="icon-default"><img src="assets/imgs/home-white.svg" class="icon-white"></i> 
+						<span class="menutext">At Home</span>
+					</li>
+					<li (click)="goToWhatIfPage()">
+						<i class="icon"><img src="assets/imgs/question-mark.svg" class="icon-default"><img src="assets/imgs/question-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">What to do if</span>
+					</li>
+					<li (click)="gotToSuccessPage()">
+						<i class="icon"><img src="assets/imgs/check-mark.svg" class="icon-default"><img src="assets/imgs/check-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">Success</span>
+					</li>
+					<li (click)="gotoInsurancePage()" class="pointer">
+										<i class="icon"><img src="assets/imgs/dollar-symbol.svg" class="icon-default"><img src="assets/imgs/dollar-symbol-white.svg" class="icon-white"></i> 
+										<span class="menutext">Insurance</span>
+									</li>
+					<li (click)="toggleNav()" class="menucollapse"><i class="icon"><img src="assets/imgs/chevron-left.svg"></i> <span class="menutext">Collapse Menu</span></li>
+				</ul>
+			</div>
+			<div class="pagecontent wrapindent">
+				<ion-grid>
+					<ion-row>
+						<ion-col align-self-stretch [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+							<!-- <div class="page-title">
+								<h2>Message to patients</h2>
+								<ion-icon md="md-help" class="help-action"></ion-icon>
+							</div> -->
+
+							<div class="page-content font-lg">
+
+								<p>This is not your regular app!</p>
+
+								<p>We want you to be fully aware of the procedure you are going to have, the alternatives, how to prepare, and what to expect.&nbsp; And, after you go home, we have described everything you need to do to get better: hour by hour, day by day.</p>
+
+								<p>Even better, you can look up every symptom to see what it is.&nbsp; If the app says that you need help, you just push a button and you are connected with either the physician on-call, my office, or you can send an email to us.</p>
+
+								<p>Finally, we can bring you the support and tools you need - 24 hours a day - and on every device you and your care-givers have.&nbsp; We are doing this together.&nbsp; It’s not quite like having us by your bedside, but you get the idea.</p>
+
+								<br>
+
+								<hr>
+
+								<p class="smallText"><em>Content provided by this app does not contain or constitute, and should not be interpreted as, medical advice or opinion.&nbsp; No doctor-patient relationship is created.&nbsp; The authors, editors, reviewers and publishers of this app are not responsible for errors, omissions, or the consequences from application of the information in this app.&nbsp; If any information you obtain from using this app is inconsistent with the advice from your health care provider, you should follow the advice of your health care provider.<br>
+
+								<br>
+
+								This app is for the issuer’s patients and their caregivers.&nbsp; All other uses are prohibited.&nbsp; Content cannot be used or copied without the permission of PatientApps Inc.</em></p>
+
+							</div>
+							<div class="arrownav">
+								<ion-icon name="ios-arrow-back" (click)="swipeRight()" class="iconarrow arrow-left"></ion-icon>
+								<ion-icon name="ios-arrow-forward" (click)="swipeLeft()" class="iconarrow arrow-right"></ion-icon>
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends" (click)="goToHomePage()">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people" (click)="goToPeoplePage()">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="goToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

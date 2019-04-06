@@ -1,0 +1,39 @@
+<ion-content>
+	<ion-grid>
+		<ion-row>
+			<ion-col align-self-stretch class="homepage" (click)="navigateToMessagePage()">
+				<div class="homepage-text">
+					<h2>The Patient Guide to Robotic Cholecystectomy</h2>
+					<h4>Just about everything you need to know before, during, and after your surgery.</h4>
+					<p>Dr. Blaine T. Phillips, M.D., M.P.H.<br />
+					Dr. Mohamad Rassoul A. Abu-Nuwar M.D.</p>
+					<p>Version 1.0</p>
+					<!-- <p><em>The Division of Minimally Invasive and Bariatric Surgery<br>
+					Beth Israel Deaconess Medical Center</em></p> -->
+					<!-- <button ion-button icon-start (click)="navigateToProcedurePage()">
+					  <ion-icon name="arrow-forward"></ion-icon>
+					</button> -->
+					<button ion-button icon-start>
+					  <ion-icon name="arrow-forward"></ion-icon>
+					</button>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people" (click)="goToPeoplePage()">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="navigateToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

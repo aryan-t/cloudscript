@@ -1,0 +1,125 @@
+<ion-header>
+	<ion-navbar color="primary"  hideBackButton="true">
+		<button ion-button menuToggle  *ngIf='platform === "mobileweb"'>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<!-- <ion-buttons left>
+			<button ion-button icon-only (click)="goBack()">
+				<ion-icon name="ios-arrow-back"></ion-icon>
+			</button>
+		</ion-buttons> -->
+		<ion-title  align-title="center">Your care team</ion-title>
+		<!-- <ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search"></ion-icon>
+			</button>
+		</ion-buttons> -->
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content (swipe)="swipeEvent($event)">
+	<div *ngIf='platform === "mobileweb" || platform ==="web"' [ngClass]="navClassName=='opennav'?'navopen':'na'">
+		<div class="pagecontainer">
+			<div class="pagenav">
+				<ul>
+					<li (click)="goToProcedurePage()">
+						<i class="icon"><img src="assets/imgs/open-book.svg" class="icon-default"><img src="assets/imgs/open-book-white.svg" class="icon-white"></i> 
+						<span class="menutext">About procedure</span>
+					</li>
+					<li (click)="gotToPreProcedure()">
+						<i class="icon"><img src="assets/imgs/numbers.svg" class="icon-default"><img src="assets/imgs/numbers-white.svg" class="icon-white"></i> 
+						<span class="menutext">Pre-procedure</span>
+					</li>
+					<li (click)="gotToDuringProcedurePage()">
+						<i class="icon"><img src="assets/imgs/sleeping.svg" class="icon-default"><img src="assets/imgs/sleeping-white.svg" class="icon-white"></i> 
+						<span class="menutext">Procedure</span>
+					</li>
+					<li (click)="goToRecoverPage()">
+						<i class="icon"><img src="assets/imgs/eye-blocked.svg" class="icon-default"><img src="assets/imgs/eye-blocked-white.svg" class="icon-white"></i> 
+						<span class="menutext">Recovery</span>
+					</li>
+					<li (click)="goToPostProcedurePage()">
+						<i class="icon"><img src="assets/imgs/home.svg" class="icon-default"><img src="assets/imgs/home-white.svg" class="icon-white"></i> 
+						<span class="menutext">At Home</span>
+					</li>
+					<li (click)="goToWhatIfPage()">
+						<i class="icon"><img src="assets/imgs/question-mark.svg" class="icon-default"><img src="assets/imgs/question-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">What to do if</span>
+					</li>
+					<li (click)="gotToSuccessPage()">
+						<i class="icon"><img src="assets/imgs/check-mark.svg" class="icon-default"><img src="assets/imgs/check-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">Success</span>
+					</li>
+					<li (click)="gotoInsurancePage()" class="pointer">
+										<i class="icon"><img src="assets/imgs/dollar-symbol.svg" class="icon-default"><img src="assets/imgs/dollar-symbol-white.svg" class="icon-white"></i> 
+										<span class="menutext">Insurance</span>
+									</li>
+					<li (click)="toggleNav()" class="menucollapse"><i class="icon"><img src="assets/imgs/chevron-left.svg"></i> <span class="menutext">Collapse Menu</span></li>
+				</ul>
+			</div>
+			<div class="pagecontent wrapindent">
+				<ion-grid>
+					<ion-row>
+						<ion-col align-self-stretch [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+							<!-- <div class="page-title">
+								<h2>Your care team</h2>
+								<ion-icon md="md-help" class="help-action"></ion-icon>
+							</div> -->
+
+							<div class="page-content font-lg">
+
+								<p>
+								<b>Procedure Physicians: </b><br /> Dr. Daniel B. Jones, Dr. Souheil Adra, Dr. Morgan Bresnick, Dr. Rahul Gupta<br />
+								<p>
+								<b>Physician Offices:</b><br />
+								BOSTON:<br />
+								Telephone: 617-667-2845<br />
+								Off-Hour calls: 617-667-7000 (main switchboard, ask for physician on call)<br /><br />
+								MILTON:<br />
+								Telephone: 617 313 1440<br /><br />
+
+								Email: <a href="mailto:wls@bidmc.harvard.edu">wls@bidmc.harvard.edu</a><br />
+							BIDMC Patientsite users can message their physicians directly.</p>
+								<br />
+								<b>Hospitals:</b><br />
+
+								Beth Israel Deaconess Medical Center- Boston 
+								<br />330 Brookline Avenue <br />
+								Boston, MA 02215<br />
+
+								<i>3rd floor Shapiro Clinical Center</i><br /><br />
+
+								Beth Israel Deaconess Medical Center- Milton<br />
+
+								199 Reedsdale Road,<br />
+
+								Milton, MA 02186<br />
+
+								<i>Center for Specialty Care, Ground Floor</i>
+
+
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends" (click)="goToHomePage()">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="goToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#ionic build --minifyjs --minifycss --generateSourceMap false && npm run postbuild
+ionic build  --generateSourceMap false && npm run postbuild && workbox injectManifest
+
+#homepage:
+#	https://golb.hplar.ch/2017/12/Workbox-in-Ionic-and-Lazy-Loading-Modules.html
+
+#npm run postbuild
+#	npm install cheerio
+
+#workbox injectManifest
+#	npm install workbox-cli -D
+#	npm install workbox-sw

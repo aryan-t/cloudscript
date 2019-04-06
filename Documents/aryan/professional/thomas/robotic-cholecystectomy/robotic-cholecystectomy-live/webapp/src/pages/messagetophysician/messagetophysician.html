@@ -1,0 +1,123 @@
+<!--
+  Generated template for the MessagetophysicianPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+	<ion-navbar color="primary"  hideBackButton="true">
+		<button ion-button menuToggle  *ngIf='platform === "mobileweb"'>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<!-- <ion-buttons left>
+			<button ion-button icon-only (click)="goBack()">
+				<ion-icon name="ios-arrow-back"></ion-icon>
+			</button>
+		</ion-buttons> -->
+		<ion-title  align-title="center">Message to Issuing Physicians</ion-title>
+		<!-- <ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search"></ion-icon>
+			</button>
+		</ion-buttons> -->
+	</ion-navbar>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)">
+	<div *ngIf='platform === "mobileweb" || platform ==="web"' [ngClass]="navClassName=='opennav'?'navopen':'na'">
+		<div class="pagecontainer">
+			<div class="pagenav">
+				<ul>
+					<li (click)="goToProcedurePage()">
+						<i class="icon"><img src="assets/imgs/open-book.svg" class="icon-default"><img src="assets/imgs/open-book-white.svg" class="icon-white"></i> 
+						<span class="menutext">About procedure</span>
+					</li>
+					<li (click)="gotToPreProcedure()">
+						<i class="icon"><img src="assets/imgs/numbers.svg" class="icon-default"><img src="assets/imgs/numbers-white.svg" class="icon-white"></i> 
+						<span class="menutext">Pre-procedure</span>
+					</li>
+					<li (click)="gotToDuringProcedurePage()">
+						<i class="icon"><img src="assets/imgs/sleeping.svg" class="icon-default"><img src="assets/imgs/sleeping-white.svg" class="icon-white"></i> 
+						<span class="menutext">Procedure</span>
+					</li>
+					<li (click)="goToRecoverPage()">
+						<i class="icon"><img src="assets/imgs/eye-blocked.svg" class="icon-default"><img src="assets/imgs/eye-blocked-white.svg" class="icon-white"></i> 
+						<span class="menutext">Recovery</span>
+					</li>
+					<li (click)="goToPostProcedurePage()">
+						<i class="icon"><img src="assets/imgs/home.svg" class="icon-default"><img src="assets/imgs/home-white.svg" class="icon-white"></i> 
+						<span class="menutext">At Home</span>
+					</li>
+					<li (click)="goToWhatIfPage()">
+						<i class="icon"><img src="assets/imgs/question-mark.svg" class="icon-default"><img src="assets/imgs/question-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">What to do if</span>
+					</li>
+					<li (click)="gotToSuccessPage()">
+						<i class="icon"><img src="assets/imgs/check-mark.svg" class="icon-default"><img src="assets/imgs/check-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">Success</span>
+					</li>
+					<li (click)="gotoInsurancePage()" class="pointer">
+										<i class="icon"><img src="assets/imgs/dollar-symbol.svg" class="icon-default"><img src="assets/imgs/dollar-symbol-white.svg" class="icon-white"></i> 
+										<span class="menutext">Insurance</span>
+									</li>
+					<li (click)="toggleNav()" class="menucollapse"><i class="icon"><img src="assets/imgs/chevron-left.svg"></i> <span class="menutext">Collapse Menu</span></li>
+				</ul>
+			</div>
+			<div class="pagecontent wrapindent">
+				<ion-grid>
+					<ion-row>
+						<ion-col align-self-stretch [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+							<!-- <div class="page-title">
+								<h2>Message to physicians</h2>
+								<ion-icon md="md-help" class="help-action"></ion-icon>
+							</div> -->
+
+							<div class="page-content font-lg">
+
+								<p>This is the template for Laparoscopic Cholecystectomy. Each issuing physician can add, delete and modify content using a simple template-editing tool. This template’s content errs on the side of more, rather than less, to facilitate editing.<br><br>
+								Physician-specific communications solutions are included in each app, as well as branding.</p>
+
+								<p>Each app is physician-specific:</p>
+								<ul>
+									<li>Physician’s name on landing page.</li>
+									<li>The audio can be replaced with the physician’s audio or video.</li>
+									<li>1st person singular approach is used for communications to patient.</li>
+									<li>Communications solutions for email and telephone are set for each issuer.</li>
+								</ul>
+								<p>The patient is given a card, specific to the procedure and the physician.  Either by scanning the QR code or inputting the URL on the card, the app is uploaded to the patient’s devices – mobile, tablet, computer or TV.   The same URL is inserted into the patient’s EHR file for reference – but the app cannot access the patient’s file, hence no HIPAA implications.  Neither is there any other interaction with the EHR – it sits outside.</p>
+
+								<!-- <p><b><u>Reviewers:</u></b><br> 
+								<u>Dr. Jaisa Olasky</u>, Mt. Auburn Hospital, <br>Assn’t Prof. Harvard Medical School<br>
+								<br>
+								<u>Dr. Brian M. Nguyen</u>, Beth Israel Deaconess Medical Center
+								<br> <br>
+								THIS IS A DEMO ONLY – NO PATIENT USE.</p> -->
+
+							</div>
+							<div class="arrownav">
+								<ion-icon name="ios-arrow-back" (click)="swipeRight()" class="iconarrow arrow-left"></ion-icon>
+								<ion-icon name="ios-arrow-forward" (click)="swipeLeft()" class="iconarrow arrow-right"></ion-icon>
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends" (click)="goToHomePage()">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people" (click)="goToPeoplePage()">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="goToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

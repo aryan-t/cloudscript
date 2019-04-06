@@ -1,0 +1,7 @@
+{
+  "name": "healthcare",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,172 @@
+<ion-header>
+	<ion-navbar  color="primary" hideBackButton="true">
+		<!-- <button ion-button menuToggle *ngIf='platform === "mobileweb"'>
+			<ion-icon name="menu"></ion-icon>
+		</button> -->
+		<ion-buttons left>
+			<!-- <button ion-button icon-only (click)="goBack()">
+				<ion-icon name="ios-arrow-back"></ion-icon>
+			</button> -->
+		</ion-buttons>
+		<ion-title  align-title="center">Procedure</ion-title>
+		<ion-buttons right>
+			 
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)">
+	<div *ngIf='platform === "mobileweb" || platform ==="web"' [ngClass]="navClassName=='opennav'?'navopen':'na'">
+		<div class="pagecontainer">
+			<div class="pagenav">
+				<ul>
+				<li (click)="goToProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/open-book.svg" class="icon-default"><img src="assets/imgs/open-book-white.svg" class="icon-white"></i> 
+				      <span class="menutext">About procedure</span>
+				     </li>
+				     <li (click)="gotToPreProcedure()">
+				      <i class="icon"><img src="assets/imgs/numbers.svg" class="icon-default"><img src="assets/imgs/numbers-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Pre-procedure</span>
+				     </li>
+				     <li (click)="gotToDuringProcedurePage()" class="active">
+				      <i class="icon" ><img src="assets/imgs/sleeping.svg" class="icon-default"><img src="assets/imgs/sleeping-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Procedure</span>
+				     </li>
+				     <li (click)="goToRecoverPage()">
+				      <i class="icon"><img src="assets/imgs/eye-blocked.svg" class="icon-default"><img src="assets/imgs/eye-blocked-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Recovery</span>
+				     </li>
+				     <li (click)="goToPostProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/home.svg" class="icon-default"><img src="assets/imgs/home-white.svg" class="icon-white"></i> 
+				      <span class="menutext">At Home</span>
+				     </li>
+				     <li (click)="goToWhatIfPage()">
+				      <i class="icon"><img src="assets/imgs/question-mark.svg" class="icon-default"><img src="assets/imgs/question-mark-white.svg" class="icon-white"></i> 
+				      <span class="menutext">What to do if</span>
+				     </li>
+				     <li (click)="gotToSuccessPage()">
+				      <i class="icon"><img src="assets/imgs/check-mark.svg" class="icon-default"><img src="assets/imgs/check-mark-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Success</span>
+				     </li>
+				     <li (click)="gotoInsurancePage()" class="pointer">
+										<i class="icon"><img src="assets/imgs/dollar-symbol.svg" class="icon-default"><img src="assets/imgs/dollar-symbol-white.svg" class="icon-white"></i> 
+										<span class="menutext">Insurance</span>
+									</li>
+				     <li (click)="toggleNav()" class="menucollapse"><i class="icon"><img src="assets/imgs/chevron-left.svg"></i> <span class="menutext">Collapse Menu</span></li>
+				</ul>
+			</div>
+			<div class="pagecontent">
+				<ion-grid>
+					<ion-row>
+						<ion-col align-self-stretch [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+							<!-- <div class="page-title">
+								<h2>Procedure</h2>
+								<ion-icon md="md-help" class="help-action"></ion-icon>
+							</div> -->
+							
+							<div class="page-image">
+								 <img width="100%" height="70%" src="./assets/imgs/procedure-img.jpg">
+							</div>
+							<div *ngFor="let item of duringprocedureList;let i=index" class="pointer accordion-item accordion-multi"  [ngClass]="item.show==true?'titleContainer':'na'">
+								<div class="item-content breadcrumb" *ngIf="item.dropdown == false">
+									<h4 (click)="activateItem(i)" class="accr-title">
+										{{item.title}}
+										<span class="arr-icon">
+											<ion-icon *ngIf="!item.show" name="ios-arrow-down"></ion-icon>
+											<ion-icon *ngIf="item.show" name="ios-arrow-up"></ion-icon>
+										</span>
+									</h4>
+									<div class="accr-content" [innerHTML]="getHtmlContent(i)" *ngIf="item.show"></div>
+								</div>
+										<div class="item-content breadcrumb" *ngIf="item.dropdown == true">
+									<h4 (click)="activateItem(i)" class="accr-title">
+										{{item.title}}
+										<br /><div class="page-image" *ngIf="item.show && i==1">
+						                 <img width="100%" height="70%" src="./assets/imgs/what-happens.jpg">
+						              </div>
+						              <div class="page-image" *ngIf="item.show && i==2">
+						                 <img width="100%" height="70%" src="./assets/imgs/just-after.jpg">
+						              </div>
+										<span class="arr-icon">
+											<ion-icon *ngIf="!item.show" name="ios-arrow-down"></ion-icon>
+											<ion-icon *ngIf="item.show" name="ios-arrow-up"></ion-icon>
+										</span>
+									</h4>
+									
+									<div *ngFor="let itemDet of item.description;let j=index" class="pointer accordion-item accordion-multi">
+										<div class="item-content breadcrumb" *ngIf="item.show">
+									<h4 (click)="activateDetailItem(i, j)" class="accr-title">
+										<b><u>{{itemDet.title}}</u></b>
+										<span class="arr-icon">
+											<ion-icon *ngIf="!itemDet.show" name="ios-arrow-down"></ion-icon>
+											<ion-icon *ngIf="itemDet.show" name="ios-arrow-up"></ion-icon>
+										</span>
+									</h4>
+									<div class="accr-content" [innerHTML]="getDetailHtmlContent(i,j)" *ngIf="itemDet.show"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="arrownav">
+								<ion-icon name="ios-arrow-back" (click)="swipeRight()" class="iconarrow arrow-left"></ion-icon>
+								<ion-icon name="ios-arrow-forward" (click)="swipeLeft()" class="iconarrow arrow-right"></ion-icon>
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+	<!-- <ion-grid>
+		<ion-row>
+			<ion-col align-self-stretch class="leftmenu" *ngIf='platform === "web"'>
+				<ion-list inset>
+					<button ion-item>About procedure</button>
+					<button ion-item (click)="gotToPreProcedure()">Pre-procedure</button> 
+					<button ion-item (click)="gotToDuringProcedurePage()"><b>Procedure</b></button> 
+					<button ion-item (click)="goToRecoverPage()">Recovery</button> 
+					<button ion-item (click)="goToPostProcedurePage()">At home</button> 
+					<button ion-item (click)="goToWhatIfPage()">What to do if</button> 
+					<button ion-item (click)="gotToSuccessPage()">Success</button> 
+				</ion-list>
+			</ion-col>
+			<ion-col align-self-stretch [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+				<div class="page-title">
+					<h2>Procedure</h2>
+					<ion-icon md="md-help" class="help-action"></ion-icon>
+				</div>
+				
+				<div class="page-image">
+					 <img width="100%" height="70%" src="https://s.abcnews.com/images/Health/GTY-doctors-handshake-jpo-170531_12x5_992.jpg">
+				</div>
+				<ion-list class="page-list">
+					<button ion-item *ngFor="let item of duringprocedureList" mode="ios">
+						{{ item.title }}
+					</button>  
+				</ion-list>
+
+				<div class="arrownav">
+					<ion-icon name="ios-arrow-back" (click)="swipeRight()" class="iconarrow arrow-left"></ion-icon>
+					<ion-icon name="ios-arrow-forward" (click)="swipeLeft()" class="iconarrow arrow-right"></ion-icon>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid> -->
+</ion-content>
+	
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends" (click)="goToHomePage()">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people" (click)="goToPeoplePage()">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="goToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

@@ -1,0 +1,204 @@
+<ion-header>
+	<ion-navbar  color="primary"  hideBackButton="true">
+		<!-- <button ion-button menuToggle  *ngIf='platform === "mobileweb"'>
+			<ion-icon name="menu"></ion-icon>
+		</button> -->
+		<!-- <ion-buttons left>
+			<button ion-button icon-only (click)="goBack()">
+				<ion-icon name="ios-arrow-back"></ion-icon>
+			</button>
+		</ion-buttons> -->
+		<ion-title  align-title="center">What To Do If</ion-title>
+		<ion-buttons right>
+			 
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)" #pageTop>
+	<div *ngIf='platform === "mobileweb" || platform ==="web"' [ngClass]="navClassName=='opennav'?'navopen':'na'">
+		<div class="pagecontainer">
+			<div class="pagenav">
+				<ul>
+					<li (click)="goToProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/open-book.svg" class="icon-default"><img src="assets/imgs/open-book-white.svg" class="icon-white"></i> 
+				      <span class="menutext">About procedure</span>
+				     </li>
+				     <li (click)="gotToPreProcedure()">
+				      <i class="icon"><img src="assets/imgs/numbers.svg" class="icon-default"><img src="assets/imgs/numbers-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Pre-procedure</span>
+				     </li>
+				     <li (click)="gotToDuringProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/sleeping.svg" class="icon-default"><img src="assets/imgs/sleeping-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Procedure</span>
+				     </li>
+				     <li (click)="goToRecoverPage()">
+				      <i class="icon"><img src="assets/imgs/eye-blocked.svg" class="icon-default"><img src="assets/imgs/eye-blocked-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Recovery</span>
+				     </li>
+				     <li (click)="goToPostProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/home.svg" class="icon-default"><img src="assets/imgs/home-white.svg" class="icon-white"></i> 
+				      <span class="menutext">At Home</span>
+				     </li>
+				     <li (click)="goToWhatIfPage()" class="active">
+				      <i class="icon"><img src="assets/imgs/question-mark.svg" class="icon-default"><img src="assets/imgs/question-mark-white.svg" class="icon-white"></i> 
+				      <span class="menutext">What to do if</span>
+				     </li>
+				     <li (click)="gotToSuccessPage()">
+				      <i class="icon"><img src="assets/imgs/check-mark.svg" class="icon-default"><img src="assets/imgs/check-mark-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Success</span>
+				     </li>
+				     <li (click)="gotoInsurancePage()" class="pointer">
+										<i class="icon"><img src="assets/imgs/dollar-symbol.svg" class="icon-default"><img src="assets/imgs/dollar-symbol-white.svg" class="icon-white"></i> 
+										<span class="menutext">Insurance</span>
+									</li>
+				     <li (click)="toggleNav()" class="menucollapse"><i class="icon"><img src="assets/imgs/chevron-left.svg"></i> <span class="menutext">Collapse Menu</span></li>
+				</ul>
+			</div>
+			<div class="pagecontent">
+				<ion-grid>
+					<ion-row>
+						<ion-col align-self-stretch [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+							<!-- <div class="page-title">
+								<h2>What to do if</h2>
+								<ion-icon md="md-help" class="help-action"></ion-icon>
+							</div> -->
+							
+							<ion-segment mode="ios" [(ngModel)]="whatTodoIf" class="tabs-default">
+								<ion-segment-button value="normalSideEffects"  (click)="segmentChanged(1)">
+									Normal
+								</ion-segment-button>
+								<ion-segment-button value="symptoms" (click)="segmentChanged(2)">
+									Symptoms
+								</ion-segment-button>
+								<!-- <ion-segment-button value="moreSymptomsOne">
+									More symptoms 1
+								</ion-segment-button>
+								<ion-segment-button value="moreSymptomsTwo">
+									More symptoms 2
+							 	</ion-segment-button> -->
+							</ion-segment>
+
+							<div [ngSwitch]="whatTodoIf">
+								<div *ngSwitchCase="'normalSideEffects'">
+									<div *ngFor="let normalSideAffects of whatToDoIfNormalSideAffects;let k=index" class="pointer accordion-item"  [ngClass]="normalSideAffects.show==true?'titleContainer':'na'">
+										<div class="item-content breadcrumb" >
+											<h4 (click)="activateItemOfNormal(k)" class="accr-title">
+												<!-- {{normalSideAffects.title}} -->
+												<div  [innerHTML]="normalSideAffects.title"></div>
+												<span class="arr-icon">
+													<ion-icon *ngIf="!normalSideAffects.show" name="ios-arrow-down"></ion-icon>
+													<ion-icon *ngIf="normalSideAffects.show" name="ios-arrow-up"></ion-icon>
+												</span>
+											</h4>
+											<div class="accr-content" [innerHTML]="getHtmlContentOfNormal(k)" *ngIf="normalSideAffects.show"></div>
+										</div>
+									</div>	
+								</div>
+
+								<div *ngSwitchCase="'symptoms'">
+									
+									<div *ngFor="let symptom of symptoms;let l=index" class="pointer accordion-item"  [ngClass]="symptom.show==true?'titleContainer':'na'">
+
+										<div class="item-content breadcrumb" *ngIf="symptom.dropdown == false">
+
+											<h4 (click)="activateItemsymptoms(l)" class="accr-title">
+												<!-- {{symptom.title}} -->
+												<div  [innerHTML]="symptom.title"></div>
+												<span class="arr-icon" *ngIf="symptom.description!=''">
+													<ion-icon *ngIf="!symptom.show" name="ios-arrow-down"></ion-icon>
+													<ion-icon *ngIf="symptom.show" name="ios-arrow-up"></ion-icon>
+												</span>
+											</h4>
+											<div class="accr-content" [innerHTML]="getHtmlContentSymptoms(l)" *ngIf="symptom.show && symptom.description!=''"></div>
+										</div>
+
+
+
+										<div class="item-content breadcrumb" *ngIf="symptom.dropdown == true">
+									<h4 (click)="activateItemsymptoms(l)" class="accr-title">
+										<div  [innerHTML]="symptom.title"></div>
+										<span class="arr-icon">
+											<ion-icon *ngIf="!symptom.show" name="ios-arrow-down"></ion-icon>
+											<ion-icon *ngIf="symptom.show" name="ios-arrow-up"></ion-icon>
+										</span>
+									</h4>
+									
+									<div *ngFor="let itemDet of symptom.description;let j=index" class="pointer accordion-item accordion-multi">
+										<div class="item-content breadcrumb" *ngIf="symptom.show">
+									<h4 (click)="activateDetailItem(l, j)" class="accr-title">
+										<b><u>{{itemDet.title}}</u></b>
+										<span class="arr-icon">
+											<ion-icon *ngIf="!itemDet.show" name="ios-arrow-down"></ion-icon>
+											<ion-icon *ngIf="itemDet.show" name="ios-arrow-up"></ion-icon>
+										</span>
+									</h4>
+									<div class="accr-content" [innerHTML]="getDetailHtmlContent(l,j)" *ngIf="itemDet.show"></div>
+										</div>
+									</div>
+								</div>
+
+
+									</div>					
+								</div>
+
+								<div *ngSwitchCase="'moreSymptomsOne'">
+									<div *ngFor="let weekBeforeItems of whatToDoIfMoreSymptomsOne;let i=index" class="pointer accordion-item"  [ngClass]="weekBeforeItems.show==true?'titleContainer':'na'">
+										<div class="item-content breadcrumb">
+											<h4 (click)="activateItem(i)" class="accr-title">
+												{{weekBeforeItems.title}}
+												<span class="arr-icon">
+													<ion-icon *ngIf="!weekBeforeItems.show" name="ios-arrow-down"></ion-icon>
+													<ion-icon *ngIf="weekBeforeItems.show" name="ios-arrow-up"></ion-icon>
+												</span>
+											</h4>
+											<div class="accr-content" [innerHTML]="getHtmlContent(i)" *ngIf="weekBeforeItems.show"></div>
+										</div>
+									</div>					
+								</div>
+
+								<div *ngSwitchCase="'moreSymptomsTwo'">
+									<div *ngFor="let weekBeforeItemsTwo of whatToDoIfMoreSymptomsTwo;let j=index" class="pointer accordion-item">
+										<div class="item-content breadcrumb">
+											<h4 (click)="activateItemOfSymptomsTwo(j)" class="accr-title">
+												{{weekBeforeItemsTwo.title}}
+												<span class="arr-icon">
+													<ion-icon *ngIf="!weekBeforeItemsTwo.show" name="ios-arrow-down"></ion-icon>
+													<ion-icon *ngIf="weekBeforeItemsTwo.show" name="ios-arrow-up"></ion-icon>
+												</span>
+											</h4>
+											<div class="accr-content" [innerHTML]="getHtmlContentOfSymptomsTwo(j)" *ngIf="weekBeforeItemsTwo.show"></div>
+										</div>
+									</div>	
+								</div>
+							</div>
+
+							<div class="arrownav">
+								<ion-icon name="ios-arrow-back" (click)="swipeRight()" class="iconarrow arrow-left"></ion-icon>
+								<ion-icon name="ios-arrow-forward" (click)="swipeLeft()" class="iconarrow arrow-right"></ion-icon>
+							</div>
+						</ion-col>
+
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends" (click)="goToHomePage()">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people" (click)="goToPeoplePage()">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="goToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

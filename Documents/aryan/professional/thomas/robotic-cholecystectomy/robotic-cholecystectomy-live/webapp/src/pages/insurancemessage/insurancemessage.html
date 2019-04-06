@@ -1,0 +1,141 @@
+<ion-header>
+	<ion-navbar color="primary"  hideBackButton="true">
+		<button ion-button menuToggle  *ngIf='platform === "mobileweb"'>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<!-- <ion-buttons left>
+			<button ion-button icon-only (click)="goBack()">
+				<ion-icon name="ios-arrow-back"></ion-icon>
+			</button>
+		</ion-buttons> -->
+		<ion-title  align-title="center" class="title-nopad">Insurance Message - USA Residents Only</ion-title>
+		<!-- <ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search"></ion-icon>
+			</button>
+		</ion-buttons> -->
+	</ion-navbar>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)">
+	<div *ngIf='platform === "mobileweb" || platform ==="web"' [ngClass]="navClassName=='opennav'?'navopen':'na'">
+		<div class="pagecontainer">
+			<div class="pagenav">
+				<ul>
+					<li (click)="goToProcedurePage()">
+						<i class="icon"><img src="assets/imgs/open-book.svg" class="icon-default"><img src="assets/imgs/open-book-white.svg" class="icon-white"></i> 
+						<span class="menutext">About procedure</span>
+					</li>
+					<li (click)="gotToPreProcedure()">
+						<i class="icon"><img src="assets/imgs/numbers.svg" class="icon-default"><img src="assets/imgs/numbers-white.svg" class="icon-white"></i> 
+						<span class="menutext">Pre-procedure</span>
+					</li>
+					<li (click)="gotToDuringProcedurePage()">
+						<i class="icon"><img src="assets/imgs/sleeping.svg" class="icon-default"><img src="assets/imgs/sleeping-white.svg" class="icon-white"></i> 
+						<span class="menutext">Procedure</span>
+					</li>
+					<li (click)="goToRecoverPage()">
+						<i class="icon"><img src="assets/imgs/eye-blocked.svg" class="icon-default"><img src="assets/imgs/eye-blocked-white.svg" class="icon-white"></i> 
+						<span class="menutext">Recovery</span>
+					</li>
+					<li (click)="goToPostProcedurePage()">
+						<i class="icon"><img src="assets/imgs/home.svg" class="icon-default"><img src="assets/imgs/home-white.svg" class="icon-white"></i> 
+						<span class="menutext">At Home</span>
+					</li>
+					<li (click)="goToWhatIfPage()">
+						<i class="icon"><img src="assets/imgs/question-mark.svg" class="icon-default"><img src="assets/imgs/question-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">What to do if</span>
+					</li>
+					<li (click)="gotToSuccessPage()">
+						<i class="icon"><img src="assets/imgs/check-mark.svg" class="icon-default"><img src="assets/imgs/check-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">Success</span>
+					</li>
+					<li class="pointer active">
+										<i class="icon"><img src="assets/imgs/dollar-symbol.svg" class="icon-default"><img src="assets/imgs/dollar-symbol-white.svg" class="icon-white"></i> 
+										<span class="menutext">Insurance</span>
+									</li>
+					<li (click)="toggleNav()" class="menucollapse"><i class="icon"><img src="assets/imgs/chevron-left.svg"></i> <span class="menutext">Collapse Menu</span></li>
+				</ul>
+			</div>
+			<div class="pagecontent wrapindent">
+				<ion-grid>
+					<ion-row>
+						<ion-col align-self-stretch [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+							<!-- <div class="page-title">
+								<h2>Message to patients</h2>
+								<ion-icon md="md-help" class="help-action"></ion-icon>
+							</div> -->
+
+							<div class="page-content font-lg">
+								
+								<u>Overview</u><br /> As soon as you decide to pursue weight loss surgery, it is absolutely essential that you contact your insurance company to verify coverage for the specific procedure you have chosen. <br /><br />
+								Insurance coverage for weight loss procedures varies by:<br /><br />
+								<ul>
+									<li><b>State</b></li>
+									<li>If you have health insurance from the state in which you reside but are seeking services from a provider in another state (e.g. New Hampshire resident receiving care from a Massachusetts surgeon, you need to call your insurance and verify that they will cover services provided outside of the state. You will also need to call the provider/hospital where you plan on having your surgery to make sure that they accept your insurance.</li>
+									<li><b>Payer (insurance company)</b><br /> Not all insurance companies cover weight loss surgery. Some insurance companies they will cover one surgery, but not another. Other payers will provide coverage for only certain parts of your procedure, but not the entire surgery, which could leave you with a substantial out-of-pocket commitment.</li>
+									<li><b>Your specific policy</b><br /> It is important that you check whether your specific policy covers bariatric surgery and, more specifically, the procedure you have chosen to pursue.<br /><br />
+										Example: <br />BlueCross® of Massachusetts, as a company, might tell you when you call their main line that BlueCross® covers bariatric surgery. This is most likely true. However, what you have not learned from this answer is whether the particular coverage you are enrolled in covers the surgery (e.g. Network Blue, Blue Care, etc.). While the company at large might cover weight loss surgery services, the subset you are enrolled in may not provide coverage for you.
+									</li>
+									<li><b>Your employer</b><br /> Most covered benefits are decided upon by the company that employs you. Since companies often select policies and do not change them for many years, you might discover that a “carve out”* exists within their plan that does not allow for weight loss surgery coverage. It is suggested that, if you find this to be the case, you approach your manager and inquire as to who you might be able to talk to about changing this <br /><br /><i>“carve out.” *Carve out: a particular procedure or service that is decidedly excluded from plan benefits.</i></li>
+
+								</ul><br />
+								<u>What happens if I forget to check if my insurance covers the provider/service that I am requesting?</u><br />
+								If you forget to check whether your insurance covers the services you are requesting, you might find that you will receive bills from the provider and servicing facility.
+								<br /><br /> An even more unfortunate outcome might be that, when your provider team processes the application for insurance coverage, they receive a denial and find out that the provider you have been seeing is not covered (credentialed) with your insurance plan. Authorization for your surgical procedure is not submitted until after you have completed the entire bariatric program and have been consented by your surgeon. For most patients, this process takes a minimum of three months.<br /><br />
+								In order for a surgery to be approved, there are notes, tests, and documents needed (which is why it is sought at the end, rather than the beginning). If you are denied at the end, you will have spent the last months at various appointments that will, ultimately, need be started all over again at a different facility that is approved by your insurance.<br /><br />
+								This is why calling your insurance immediately is of the utmost importance. <br /><br />
+								<u>What information do I need to have when I call my insurance company?</u>
+								<br /><br />
+								When you call your insurance company to verify coverage for weight loss surgery, you will be asked to provide:
+								<ul>
+								<li>the name of the hospital where you intend to have your surgery </li>
+								<li> the name of the surgeon who you plan to have perform your operation </li>
+								<li> your surgeons National Provider Identifier (NPI) number. If you do not have the NPI for the provider on hand, you can simply search for this online. You can also call the facility and ask for it.</li>
+							</ul>
+							<br />
+							<u>Can the surgeon’s office call my insurance for me?</u><br />
+							No. Insurance companies will not answer certain questions regarding coverage unless the policy holder is the one inquiring. Your surgeon’s office staff are here to assist you in any way that they can, but ensuring coverage is your responsibility.<br />
+							If you have any additional questions regarding insurance coverage for weight loss surgery that are not answered here, please feel free to call your surgeon’s office.
+
+							<br />
+							<u>Can I pay out of pocket for a procedure?</u><br />
+							Most hospitals allow out of pocket payments for surgeries. If you plan to pay out-of-pocket, you should inform your surgeon’s office of this as soon as possible so his or her staff can look into getting the proper paperwork set up for you. They will also be able to provide you with an estimate for the total cost of your procedure. <br /><br />
+							For procedures that are not traditionally covered by insurance (e.g. intragastric balloon therapy), it is likely that the staff at your surgeon’s office will already have the necessary paperwork prepared for you.
+
+							<br /><br />
+							<u>Referral</u><br />
+							Along with ensuring that you have proper insurance coverage for the facility, surgeon, and procedure, it is equally important for you to have obtained a referral from your primary care provider indicating that they agree that weight loss surgery is medically necessary for your health. <br />
+							If you do not have a referral at the time of insurance authorization, your insurance company may deny your claim for coverage. While referrals can sometimes be retroactively applied, not having this referral puts you at risk of coverage denial or, at a minimum, postposing the date of your procedure.
+
+
+
+
+							</div>
+							<div class="arrownav">
+								<ion-icon name="ios-arrow-back" (click)="swipeRight()" class="iconarrow arrow-left"></ion-icon>
+								<!-- <ion-icon name="ios-arrow-forward" (click)="swipeLeft()" class="iconarrow arrow-right"></ion-icon> -->
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends" (click)="goToHomePage()">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people" (click)="goToPeoplePage()">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="goToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

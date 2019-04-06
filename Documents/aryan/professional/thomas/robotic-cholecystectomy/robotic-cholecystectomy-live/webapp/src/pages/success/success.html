@@ -1,0 +1,187 @@
+<ion-header>
+	<ion-navbar  color="primary"  hideBackButton="true">
+		<button ion-button menuToggle *ngIf='platform === "mobileweb"'>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<!-- <ion-buttons left>
+			<button ion-button icon-only (click)="goBack()">
+				<ion-icon name="ios-arrow-back"></ion-icon>
+			</button>
+		</ion-buttons> -->
+		<ion-title  align-title="center">Success</ion-title>
+		<!-- <ion-buttons right>
+			<button ion-button icon-only>
+				<ion-icon name="ios-search"></ion-icon>
+			</button>
+		</ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)">
+	<div *ngIf='platform === "mobileweb" || platform ==="web"' [ngClass]="navClassName=='opennav'?'navopen':'na'">
+		<div class="pagecontainer">
+			<div class="pagenav">
+				<ul>
+					<li (click)="goToProcedurePage()">
+						<i class="icon"><img src="assets/imgs/open-book.svg" class="icon-default"><img src="assets/imgs/open-book-white.svg" class="icon-white"></i> 
+						<span class="menutext">About procedure</span>
+					</li>
+					<li (click)="gotToPreProcedure()">
+						<i class="icon"><img src="assets/imgs/numbers.svg" class="icon-default"><img src="assets/imgs/numbers-white.svg" class="icon-white"></i> 
+						<span class="menutext">Pre-procedure</span>
+					</li>
+					<li (click)="gotToDuringProcedurePage()">
+						<i class="icon"><img src="assets/imgs/sleeping.svg" class="icon-default"><img src="assets/imgs/sleeping-white.svg" class="icon-white"></i> 
+						<span class="menutext">Procedure</span>
+					</li>
+					<li (click)="goToRecoverPage()">
+						<i class="icon"><img src="assets/imgs/eye-blocked.svg" class="icon-default"><img src="assets/imgs/eye-blocked-white.svg" class="icon-white"></i> 
+						<span class="menutext">Recovery</span>
+					</li>
+					<li (click)="goToPostProcedurePage()">
+						<i class="icon"><img src="assets/imgs/home.svg" class="icon-default"><img src="assets/imgs/home-white.svg" class="icon-white"></i> 
+						<span class="menutext">At Home</span>
+					</li>
+					<li (click)="goToWhatIfPage()">
+						<i class="icon"><img src="assets/imgs/question-mark.svg" class="icon-default"><img src="assets/imgs/question-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">What to do if</span>
+					</li>
+					<li (click)="gotToSuccessPage()" class="active">
+						<i class="icon"><img src="assets/imgs/check-mark.svg" class="icon-default"><img src="assets/imgs/check-mark-white.svg" class="icon-white"></i> 
+						<span class="menutext">Success</span>
+					</li>
+					<li (click)="gotoInsurancePage()" class="pointer">
+										<i class="icon"><img src="assets/imgs/dollar-symbol.svg" class="icon-default"><img src="assets/imgs/dollar-symbol-white.svg" class="icon-white"></i> 
+										<span class="menutext">Insurance</span>
+									</li>
+					<li (click)="toggleNav()" class="menucollapse"><i class="icon"><img src="assets/imgs/chevron-left.svg"></i> <span class="menutext">Collapse Menu</span></li>
+				</ul>
+			</div>
+			<div class="pagecontent">
+				<ion-grid>
+					<ion-row>
+						<ion-col align-self-stretch  [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+							<!-- <div class="page-title">
+								<h2>Success</h2>
+								<ion-icon md="md-help" class="help-action"></ion-icon>
+							</div> -->
+
+							<div class="success-block">
+								<h4>Were you satisfied with the procedure?</h4>
+								<ion-row>
+									<ion-col col-4 col-sm-3 col-md-3 col-lg-2>
+										<div class="feedback-action" (click)="getSatisfactionLevel('no')" [ngClass]="{'activeSatisfactionEmoji' : (satisfied == 'no'), 'inActiveSatisfactionEmoji' : (satisfied != 'no')}">
+											<button ion-button class="btn-emoji">
+												<img src="../assets/imgs/sad.svg" class="default">
+												<img src="../assets/imgs/sad-selected.svg" class="selected">
+											</button><br>
+											No
+										</div>
+									</ion-col>
+									<ion-col col-4 col-sm-3 col-md-3 col-lg-2>
+										<div class="feedback-action" (click)="getSatisfactionLevel('somewhat')" [ngClass]="{'activeSatisfactionEmoji' : (satisfied == 'somewhat'), 'inActiveSatisfactionEmoji' : (satisfied != 'somewhat')}">
+											
+											<button ion-button class="btn-emoji">
+												<img src="../assets/imgs/indifferent.svg" class="default">
+												<img src="../assets/imgs/indifferent-selected.svg" class="selected">
+											</button><br>
+											Somewhat
+										</div>
+									</ion-col>
+									<ion-col col-4 col-sm-3 col-md-3 col-lg-2>
+										<div class="feedback-action" (click)="getSatisfactionLevel('yes')" [ngClass]="{'activeSatisfactionEmoji' : (satisfied == 'yes'), 'inActiveSatisfactionEmoji' : (satisfied != 'yes')}">
+										
+											<button ion-button class="btn-emoji">
+												<img src="../assets/imgs/happy.svg" class="default">
+												<img src="../assets/imgs/happy-selected.svg" class="selected">
+											</button><br>
+											Yes
+										</div>
+									</ion-col>
+								</ion-row>
+							</div>
+
+							<div class="success-block">
+								<h4>Was this app helpful?</h4>
+								<ion-row>
+									<ion-col col-4 col-sm-3 col-md-3 col-lg-2>
+										<div class="feedback-action" (click)="getHelpfulLevel('no')" [ngClass]="{'activeHelpfulEmoji' : (helpful == 'no'), 'inActiveHelpfulEmoji' : (helpful != 'no')}">
+											<button ion-button class="btn-emoji">
+												<img src="../assets/imgs/sad.svg" class="default">
+												<img src="../assets/imgs/sad-selected.svg" class="selected">
+											</button><br>
+											No
+										</div>
+									</ion-col>
+									<ion-col col-4 col-sm-3 col-md-3 col-lg-2>
+										<div class="feedback-action" (click)="getHelpfulLevel('somewhat')" [ngClass]="{'activeHelpfulEmoji' : (helpful == 'somewhat'), 'inActiveHelpfulEmoji' : (helpful != 'somewhat')}">
+											<button ion-button class="btn-emoji">
+												<img src="../assets/imgs/indifferent.svg" class="default">
+												<img src="../assets/imgs/indifferent-selected.svg" class="selected">
+											</button><br>
+											Somewhat
+										</div>
+									</ion-col>
+									<ion-col col-4 col-sm-3 col-md-3 col-lg-2>
+										<div class="feedback-action" (click)="getHelpfulLevel('yes')" [ngClass]="{'activeHelpfulEmoji' : (helpful == 'yes'), 'inActiveHelpfulEmoji' : (helpful != 'yes')}">
+											<button ion-button class="btn-emoji">
+												<img src="../assets/imgs/happy.svg" class="default">
+												<img src="../assets/imgs/happy-selected.svg" class="selected">
+											</button><br>
+											Yes
+										</div>
+									</ion-col>
+								</ion-row>
+							</div>
+
+							<div class="success-block">
+								<h4>Feedback is welcome</h4>
+								<ion-row>
+									<ion-col col-12 col-sm-9 col-md-10>
+										<p>Please share what you liked and what you did not so we can continue to improve our app.</p>
+									</ion-col>
+									<ion-col col-12 col-sm-3 col-md-2>
+										<div text-right>
+											<!-- <button ion-button (click)="activateMailToOptions()">EMAIL US</button> -->
+											<a ion-button href="mailto:ContactUs@PatientAppsinc.com?Subject=PatientApps" target="_top">EMAIL US</a>
+										</div>
+									</ion-col>
+								</ion-row>
+								<br>
+								<hr>
+								<p class="footnote">
+									<u>Authors</u>: Dr. Blaine T. Phillips, M,D., M.P.H., Dr. Mohamad Rassoul A. Abu-Nuwar M.D.<br>
+									<u>Reviewers</u>: Dr. Jaisa Olasky M.D., Assistant Professor Harvard Medical School; Dr. Brian M. Nguyen M.D., General Surgeon, Kaiser Permanente<br>
+									<u>Powered &amp; Built by</u>: PatientApps Inc., Boston
+								</p>
+							</div>
+
+							<div class="arrownav">
+								Copyright © 2019, PatientApps Inc.
+							</div>
+							<div class="arrownav">
+								<ion-icon name="ios-arrow-forward" (click)="swipeLeft()" class="iconarrow arrow-right"></ion-icon>
+							</div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends" (click)="goToHomePage()">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people" (click)="goToPeoplePage()">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="goToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

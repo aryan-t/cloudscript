@@ -1,0 +1,169 @@
+<ion-header>
+	<ion-navbar color="primary"  hideBackButton="true">
+		<button ion-button menuToggle  *ngIf='platform === "mobileweb"'>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<!-- <ion-buttons left>
+			<button ion-button icon-only (click)="goBack()">
+				<ion-icon name="ios-arrow-back"></ion-icon>
+			</button>
+		</ion-buttons> -->
+		<ion-title  align-title="center">At home</ion-title>
+		<ion-buttons right>
+			 
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)" #pageTop>
+	<div *ngIf='platform === "mobileweb" || platform ==="web"' [ngClass]="navClassName=='opennav'?'navopen':'na'">
+		<div class="pagecontainer">
+			<div class="pagenav">
+				<ul>
+					<li (click)="goToProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/open-book.svg" class="icon-default"><img src="assets/imgs/open-book-white.svg" class="icon-white"></i> 
+				      <span class="menutext">About procedure</span>
+				     </li>
+				     <li (click)="gotToPreProcedure()">
+				      <i class="icon"><img src="assets/imgs/numbers.svg" class="icon-default"><img src="assets/imgs/numbers-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Pre-procedure</span>
+				     </li>
+				     <li (click)="gotToDuringProcedurePage()">
+				      <i class="icon"><img src="assets/imgs/sleeping.svg" class="icon-default"><img src="assets/imgs/sleeping-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Procedure</span>
+				     </li>
+				     <li (click)="goToRecoverPage()">
+				      <i class="icon"><img src="assets/imgs/eye-blocked.svg" class="icon-default"><img src="assets/imgs/eye-blocked-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Recovery</span>
+				     </li>
+				     <li (click)="goToPostProcedurePage()" class="active">
+				      <i class="icon"><img src="assets/imgs/home.svg" class="icon-default"><img src="assets/imgs/home-white.svg" class="icon-white"></i> 
+				      <span class="menutext">At Home</span>
+				     </li>
+				     <li (click)="goToWhatIfPage()">
+				      <i class="icon"><img src="assets/imgs/question-mark.svg" class="icon-default"><img src="assets/imgs/question-mark-white.svg" class="icon-white"></i> 
+				      <span class="menutext">What to do if</span>
+				     </li>
+				     <li (click)="gotToSuccessPage()">
+				      <i class="icon"><img src="assets/imgs/check-mark.svg" class="icon-default"><img src="assets/imgs/check-mark-white.svg" class="icon-white"></i> 
+				      <span class="menutext">Success</span>
+				     </li>
+				     <li (click)="gotoInsurancePage()" class="pointer">
+										<i class="icon"><img src="assets/imgs/dollar-symbol.svg" class="icon-default"><img src="assets/imgs/dollar-symbol-white.svg" class="icon-white"></i> 
+										<span class="menutext">Insurance</span>
+									</li>
+				     <li (click)="toggleNav()" class="menucollapse"><i class="icon"><img src="assets/imgs/chevron-left.svg"></i> <span class="menutext">Collapse Menu</span></li>
+				</ul>
+			</div>
+			<div class="pagecontent">
+				<ion-grid>
+					<ion-row>
+						<ion-col align-self-stretch [ngClass]="className=='contentwrap'?'contentwrap':'na'" class="content-area">
+							<!-- <div class="page-title">
+								<h2>At home</h2>
+								<ion-icon md="md-help" class="help-action"></ion-icon>
+							</div> -->
+							
+							<ion-row class="calendar-day" *ngIf="!showFirstPage">
+								<ion-col *ngFor="let day of daysInAWeek; let i=index" (click)="getPageContent(i)"  class="pointer"  [ngClass]="activeDay==i?'currentDate':'na'">
+									<!-- <div> -->
+									<span class="cal-day">{{day.day}}</span>
+									<span class="cal-date">{{day.date}}</span>
+								<!-- </div> -->
+								</ion-col>
+							</ion-row>
+
+							<div class="page-content">
+								<div *ngIf="showFirstPage">
+
+									<div *ngFor="let item of homeContent;let i=index" class="pointer accordion-item accordion-multi" [ngClass]="item.show==true?'titleContainer':'na'">
+											<div class="item-content breadcrumb" *ngIf="item.dropdown == false">
+												<h4 (click)="activateItemHome(i)" class="accr-title">
+													<span [innerHTML]="item.title"></span>
+													<span class="arr-icon" *ngIf="item.title !='Eat a normal diet after a couple of days'">
+														<ion-icon *ngIf="!item.show" name="ios-arrow-down"></ion-icon>
+														<ion-icon *ngIf="item.show"  name="ios-arrow-up"></ion-icon>
+													</span>
+												</h4>
+												<div [ngClass]="item.title!='Eat a normal diet after a couple of days'?'accr-content':'na'" [innerHTML]="getHtmlContentHome(i)" *ngIf="item.show"></div>
+											</div>
+										</div>
+
+
+									
+									<button ion-button icon-start  (click)="showDatePicker()" *ngIf="dateSelected =='false'">
+										<ion-icon name="calendar"></ion-icon>
+										Set the date you returned home
+									</button>
+									<button ion-button icon-start  (click)="showDatePicker()" *ngIf="dateSelected =='true'">
+										<ion-icon name="calendar"></ion-icon>
+										Change date you returned home
+									</button>
+								</div>
+								<div *ngIf="!showFirstPage">
+								<div class="accr-content" [innerHTML]="dayContent" *ngIf="dayContentType === 'text'"></div>
+								<div *ngIf="dayContentType === 'textanddropdown'">
+									<div [innerHTML]="dayContent[0].text"></div>
+									<ul style="margin-top: -1.7%">
+										<li class="pointer"  (click)="activateItemMultiple()">
+											<span class="accr-content" [innerHTML]="dayContent[0].dropdown[0].title">
+												</span> <span class="arr-icon"><ion-icon *ngIf="!showMultiple" name="ios-arrow-down"></ion-icon>
+														<ion-icon *ngIf="showMultiple" name="ios-arrow-up"></ion-icon></span></li>
+										<div class="accr-content" [innerHTML]="dayContent[0].dropdown[0].content" *ngIf="showMultiple"></div>
+									</ul>
+								</div>
+
+
+								<div  *ngIf="dayContentType === 'checkbox'">
+									<p><small ion-text color="danger">Check when task is completed</small></p>
+									<div *ngFor="let dayCont of dayContent;let i=index" class="pointer accordion-item accordion-multi"  [ngClass]="dayCont.show==true?'titleContainer':'na'">
+											<div class="item-checkbox">
+												<ion-checkbox  mode="ios" checked="{{dayCont.selected}}" (click)="selectItems(i)"></ion-checkbox>
+											</div>
+											<div class="item-content breadcrumb">
+												<h4 (click)="activateItem(i)" class="accr-title">
+													<span  [innerHTML]="dayCont.title"></span>
+													<span class="arr-icon" *ngIf="dayCont.htmlDesc!=''">
+														<ion-icon *ngIf="!dayCont.show" name="ios-arrow-down"></ion-icon>
+														<ion-icon *ngIf="dayCont.show" name="ios-arrow-up"></ion-icon>
+													</span>
+												</h4>
+												<div class="accr-content" [innerHTML]="dayCont.htmlDesc" *ngIf="dayCont.show && dayCont.htmlDesc!=''"></div>
+											</div>
+										</div>
+								</div>
+								<button ion-button icon-start  (click)="showDatePicker()" *ngIf="dateSelected =='true'">
+								<ion-icon name="calendar"></ion-icon>
+									Change date you returned home
+								</button>
+							</div>
+							</div>
+
+							<div class="arrownav">
+								<ion-icon name="ios-arrow-back" (click)="swipeRight()" class="iconarrow arrow-left"></ion-icon>
+								<ion-icon name="ios-arrow-forward" (click)="swipeLeft()" class="iconarrow arrow-right"></ion-icon>
+							</div>
+
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar no-border-top color="dark">
+		<ion-segment color="light">
+			<ion-segment-button value="friends" (click)="goToHomePage()">
+				<ion-icon name="home"></ion-icon><br>
+			</ion-segment-button>
+			<ion-segment-button value="people" (click)="goToPeoplePage()">
+				<ion-icon name="people"></ion-icon><br>
+			</ion-segment-button>
+			<!-- <ion-segment-button value="calendar" (click)="goToPostProcedurePage()">
+				At Home
+			</ion-segment-button> -->
+		</ion-segment>
+	</ion-toolbar>
+</ion-footer>

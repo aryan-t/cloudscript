@@ -1,0 +1,84 @@
+page-home {
+	.homepage {
+		background: url(../../assets/imgs/homepage-bg.jpg) no-repeat center center;
+		background-size: cover;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		.homepage-text {
+			background-color: rgba(color($colors, primary),0.8);
+			bottom: 4rem;
+			color: #ffffff;
+			left: 4rem;
+			padding: 10% 5rem;
+			position: absolute;
+			right: 4rem;
+			text-align: center;
+			top: 4rem;
+
+			h2 {
+				font-size: 6rem;
+				font-weight: normal;
+			}
+			h4 {
+				font-size: 2.5rem;
+				margin-bottom: 0;
+			}
+			p {
+				margin-top: 0.5rem;
+			}
+			button {
+				background-color: transparent;
+				border: 2px solid #ffffff;
+				border-radius: 50%;
+				box-shadow: none;
+				-webkit-box-shadow: none;
+				height: 50px;
+				margin-top: 1rem;
+				width: 50px;
+
+				ion-icon {
+					padding-right: 0;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 767.98px) {
+		.homepage {
+			.homepage-text {
+				h2 {
+					font-size: 4.5rem;
+				}
+				h4 {
+					font-size: 2rem;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 575.98px) {
+		.homepage {
+			
+			.homepage-text {
+				bottom: 2rem;
+				left: 2rem;
+				padding-left: 2rem;
+				padding-right: 2rem;
+				right: 2rem;
+				top: 2rem;
+
+				h2 {
+					font-size: 2.5rem;
+					font-weight: lighter;
+				}
+				h4 {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}

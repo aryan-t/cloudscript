@@ -1,0 +1,640 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+ion-app.wp,
+ion-app.md,
+ion-app.ios {
+	font-family: Arial, sans-serif;
+	font-size: 1.7rem;
+	line-height: 1.3;
+}
+ion-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/*padding: 0 90px 1px;*/
+	padding: 0 0 1px;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+ion-label {
+	white-space: inherit !important;
+}
+.spc {
+	display: inline-block;
+	width: 10px;
+}
+.toolbar-title {
+	line-height: 1.1;
+	text-overflow: inherit;
+	white-space: normal;
+}
+
+.toolbar-md-primary .toolbar-background-md,
+.toolbar-ios-primary .toolbar-background-ios,
+.toolbar-wp-primary .toolbar-background-wp {
+	background: rgb(39,162,160);
+	background: -moz-linear-gradient(90deg, rgba(39,162,160,1) 0%, rgba(41,165,207,1) 100%);
+	background: -webkit-linear-gradient(90deg, rgba(39,162,160,1) 0%, rgba(41,165,207,1) 100%);
+	background: linear-gradient(90deg, rgba(39,162,160,1) 0%, rgba(41,165,207,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#27a2a0",endColorstr="#29a5cf",GradientType=1);
+}
+.segment-ios-light .segment-button,
+.segment-md-light .segment-button,
+.segment-wp-light .segment-button,
+.segment-ios-light .segment-button a,
+.segment-md-light .segment-button a,
+.segment-wp-light .segment-button a {
+	border: 0 !important;
+	color: #f4f4f4;
+}
+.segment-ios-light .segment-button.activated,
+.segment-md-light .segment-button.activated,
+.segment-wp-light .segment-button.activated,
+.segment-ios-light .segment-button.activated a,
+.segment-md-light .segment-button.activated a,
+.segment-wp-light .segment-button.activated a {
+	color: #ffffff;
+}
+.scroll-content {
+	overflow-y: auto;
+	contain: none;
+	-webkit-overflow-scrolling: touch;
+}
+.grid {
+	padding: 0;
+}
+.leftmenu {
+	background-color: #eef8fd;
+	bottom: 56px;
+	left: 0;
+	position: fixed;
+	top: 56px;
+	width: 200px;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 200px;
+	-ms-flex: 0 0 200px;
+	flex: 0 0 200px;
+	max-width: 200px;
+	padding: 0;
+}
+.leftmenu .list-md[inset],
+.leftmenu .list-ios {
+	border-radius: 0;
+	margin: 0;
+}
+.leftmenu .item-md,
+.leftmenu .item-ios {
+	background-color: transparent;
+	color: #777777;
+	padding: 0;
+}
+.leftmenu .item-md.item-block .item-inner,
+.leftmenu .item-ios.item-block .item-inner {
+	padding: 4px 20px;
+}
+
+.content-area.contentwrap {
+	padding: 40px;
+}
+.content-area.na {
+	padding: 40px;
+}
+
+.tabs-md-dark .tabbar {
+	background-color: #3a3a3a;
+}
+
+.addshadow {
+box-shadow: 0 1px 0 0 grey; /* Border bottom */
+box-shadow: 0 -1px 0 0 grey; /* Border top */
+box-shadow: -1px 0 0 0 grey; /* Border left */
+box-shadow: 1px 0 0 0 grey; /* Border right */
+box-shadow: 0 0 0 1px grey; /* All the borders by using the spread properties */	
+}
+
+.hover {
+	cursor:pointer;
+}
+
+.drawermenu .item-ios,
+.drawermenu .item-md,
+.drawermenu .item-wp {
+	padding-left: 0;
+}
+.drawermenu .item-ios .item-inner,
+.drawermenu .item-md .item-inner,
+.drawermenu .item-wp .item-inner {
+	padding-left: 16px;
+}
+
+/* MENU STYLES ======================================== */
+.pagecontainer {
+	display: flex;
+
+	.pagenav {
+		background-color: #eef8fd;
+		bottom: 56px;
+		left: 0;
+		position: fixed;
+		top: 56px;
+		width: 40px;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				border-bottom: 1px solid #dedede;
+				color: #777777;
+				cursor: pointer;
+				padding: 10px 4px;
+				text-align: center;
+
+				.menutext {
+					display: none;
+				}
+				.icon {
+					display: inline-block;
+					margin-right: 0;
+					margin-top: -7px;
+					text-align: center;
+					vertical-align: middle;
+
+					img {
+						max-width: 18px;
+						width: 18px;
+						vertical-align: middle;
+					}
+					& .icon-white {
+						display: none;
+					}
+				}
+			}
+			& .menucollapse {
+				background-color: #555555;
+				color: #ffffff;
+				
+				.icon {
+					margin-top: 0;
+					transform: rotate(180deg);
+				}
+			}
+			& .active {
+				background: rgb(39,162,160);
+				background: -moz-linear-gradient(90deg, rgba(39,162,160,1) 0%, rgba(41,165,207,1) 100%);
+				background: -webkit-linear-gradient(90deg, rgba(39,162,160,1) 0%, rgba(41,165,207,1) 100%);
+				background: linear-gradient(90deg, rgba(39,162,160,1) 0%, rgba(41,165,207,1) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#27a2a0",endColorstr="#29a5cf",GradientType=1);
+				color: #ffffff;
+
+				.icon {
+					.icon-default {
+						display: none;
+					}
+					.icon-white {
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+
+	.pagecontent {
+		margin-left: 40px;
+		width: calc(100% - 40px);
+	}
+}
+
+.navopen {
+	.pagenav {
+		width: 200px;
+
+		ul {
+
+			li {
+				border-bottom: 1px solid #dedede;
+				padding: 18px 20px;
+				text-align: left;
+
+				.menutext {
+					display: inline-block;
+				}
+				.icon {
+					margin-right: 4px;
+					margin-top: -7px;
+
+					img {
+						max-width: 18px;
+						width: 18px;
+						vertical-align: middle;
+					}
+				}
+			}
+			& .menucollapse {
+				.icon {
+					margin-top: -7px;
+					transform: rotate(0deg);
+				}
+			}
+		}
+	}
+
+	.pagecontent {
+		margin-left: 200px;
+		width: calc(100% - 200px);
+	}
+}
+/* //MENU STYLES */
+
+
+.segment-ios .segment-button {
+	border: 0 !important;
+}
+.toolbar-ios .segment-button {
+	height: 4.4rem;
+	line-height: 4.8rem;
+}
+.segment-ios .segment-button:first-of-type {
+	border-radius: 0;
+}
+.toolbar .segment-wp {
+	display: flex;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	width: 100%;
+}
+.segment-wp .segment-button {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	width: 0;
+}
+
+.pointer {cursor: pointer;}
+
+.breadcrumb {
+	background-color:#eee;
+	padding:1%;
+}
+
+/* PAGE STYLES ======================================== */
+.page-tabs.segment-ios .segment-button {
+	border: 1px solid #a1a1a1 !important;
+}
+
+.page-title {
+	margin-bottom: 3rem;
+	position: relative;
+}
+.page-title h2 {
+	color: color($colors, primary);
+	font-size: 3.5rem;
+	font-weight: normal;
+}
+
+.page-title .help-action {
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	color: #999999;
+	font-size: 1.75rem;
+	height: 28px;
+	line-height: 28px;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 28px;
+}
+.page-list .item-ios {
+	padding-left: 0;
+}
+.page-list 
+.single-page .page-content {
+	padding: 20px 40px;
+}
+.inline-icon {
+	margin-bottom: -2px;
+	width: 14px;
+}
+.tableofcontent {
+	list-style: none;
+	padding-left: 0;
+
+	li {
+		padding: 8px 0;
+
+		.icon {
+			display: inline-block;
+			margin-right: 10px;
+			margin-top: -7px;
+			text-align: center;
+			vertical-align: middle;
+
+			img {
+				max-width: 20px;
+				width: 20px;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+.smallText {
+	font-size: 70%;
+	line-height: 1.3;
+}
+.footnote {
+	font-size: 1.7rem;
+}
+@media (min-width: 992px) {
+	.font-lg {
+		font-size: 22px;
+	}
+	.wrapindent {
+		padding-left: 8rem;
+		padding-right: 8rem;
+	}
+}
+
+/* TABS STYLES ====== */
+.tabs-default.segment-ios .segment-button,
+.calendar-day .col {
+	border: 1px solid color($colors, tab-gray) !important;
+	color: color($colors, tab-gray);
+}
+.calendar-day .col.currentDate {
+	background-color: #29a5cf;
+	color: #ffffff;
+}
+.tabs-default.segment-ios .segment-button.segment-activated,
+.calendar-day .col.cal-today {
+ background-color: color($colors, tab-gray) !important;
+ color: #ffffff !important;
+}
+
+.tabs-default.segment {
+	margin-bottom: 2rem;
+}
+.tabs-default.segment-ios .segment-button {
+	border-radius: 0;
+	font-size: 2rem;
+	height: auto;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 0.5rem 0;
+}
+.tabs-default.segment-ios .segment-button:first-of-type {
+	border-radius: 0;
+	margin-left: 0;
+}
+.tabs-default.segment-ios .segment-button:last-of-type {
+	border-radius: 0;
+	margin-right: 0;
+}
+.arrownav {
+	margin-top: 4rem;
+	text-align: center;
+	
+	.iconarrow {
+		border: 1px solid #777777;
+		border-radius: 50%;
+		cursor: pointer;
+		font-size: 2.5rem;
+		height: 46px;
+		margin: 0 10px;
+		line-height: 46px;
+		width: 46px;
+	}
+	& .arrow-left::before {
+		margin-left: -3px;
+	}
+	& .arrow-right::before {
+		margin-right: -3px;
+	}
+}
+
+.postprocedure-dropdown-content {
+	ion-label {
+		white-space: inherit;
+
+		div {
+			margin-left: 1.25rem;
+		}
+	}
+}
+
+
+/* ACCORDION STYLES ====== */
+.accordion-item {
+	margin-bottom: 4px;
+}
+.accordion-item.accordion-multi {
+	display: flex;
+}
+.accordion-item .item-checkbox {
+	margin-right: 0.5rem;
+	padding-top: 1.25rem;
+	width: 30px;
+}
+.accordion-item .item-content {
+	flex-basis: 100%;
+}
+.accordion-item .breadcrumb {
+	padding: 0;
+}
+.accordion-item .accr-title,
+.accordion-item .accr-content {
+	padding: 1.25rem 3.5rem 1.25rem 1.5rem;
+}
+.accordion-item .accr-title {
+	margin: 0;
+	position: relative;
+}
+.accordion-item.titleContainer .accr-title {
+	background-color: #ffeaf4;
+}
+.accordion-item .item-content .arr-icon {
+	color: #999999;
+	position: absolute;
+	right: 1.5rem;
+	top: 1.25rem;
+}
+.accordion-item p {
+	margin: 0;
+}
+
+/* CALENDAR DAY STYLES ====== */
+.calendar-day {
+	margin-left: -1px;
+	margin-right: -1px;
+}
+.calendar-day .col {
+	margin: 1px;
+	max-width: 16%;
+	text-align: center;
+}
+.calendar-day .col span {
+	display: block;
+}
+.calendar-day .col .cal-date {
+	font-size: 3.25rem;
+	font-weight: bold;
+}
+@media (max-width: 575.98px) {
+	.calendar-day .col {
+		flex-basis: 24%;
+		line-height: 1.2;
+		max-width: 24%;
+		width: 24%;
+	}
+	.calendar-day .col .cal-date {
+		font-size: 2.75rem;
+	}
+}
+@media (max-width: 319.98px) {
+	.calendar-day .col .cal-date {
+		font-size: 2.5rem;
+	}
+}
+@media (max-width: 299.98px) {
+	.calendar-day .col {
+		flex-basis: 48%;
+		max-width: 48%;
+		width: 48%;
+	}
+	.calendar-day .col .cal-date {
+		font-size: 2.5rem;
+	}
+}
+
+/* SUCCESS STYLES ====== */
+.success-block {
+	border-top: 1px solid #dddddd;
+	padding-bottom: 2rem;
+}
+.feedback-action {
+	text-align: center;
+}
+.btn-emoji {
+	background: none;
+	border: 0;
+	box-shadow: none;
+	color: color($colors, dark);
+	-webkit-box-shadow: none;
+	height: auto;
+
+	.selected {
+		display: none;
+	}
+}
+.activeSatisfactionEmoji {
+	.btn-emoji {
+		.default {
+			display: none;
+		}
+		.selected {
+			display: inline-block;
+		}
+	}
+}
+.activeHelpfulEmoji {
+	.btn-emoji {
+		.default {
+			display: none;
+		}
+		.selected {
+			display: inline-block;
+		}
+	}
+}
+.btn-emoji:hover:not(.disable-hover),
+.btn-emoji.activated {
+	background: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+.btn-emoji img {
+	width: 50px;
+}
+
+/* HOME SLIDER STYLES ====== */
+.swiper-slide ion-img {
+	contain: inherit;
+}
+.swiper-slide ion-img img {
+	width: 100%;
+}
+/* //PAGE STYLES */
+
+
+@media (max-width: 767px) {
+	.content-area.contentwrap {
+		padding: 20px;
+	}
+	.content-area.na {
+		padding: 20px;
+	}
+	.single-page .page-content {
+		padding: 20px;
+	}
+	.page-title {
+		margin-bottom: 3rem;
+	}
+	.page-title h2 {
+		font-size: 2.75rem;
+	}
+
+	.accordion-item .item-content h4 {
+		font-size: 1.75rem;
+	}
+	.accordion-item .item-checkbox {
+		padding-top: 0.6rem;
+	}
+}
+
+.modal-fullscreen {
+    .modal-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.marginHeading {
+	margin-top:0% !important;
+}
+
+.lineThrough{
+	text-decoration: line-through;
+}
